@@ -2,6 +2,7 @@ import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 import { CODE, code_data } from './code.mjs'
 import { height, width, red_line, deepcopy } from "./util/constant.mjs"
 import { solve_pond } from './calculator.mjs'
+import { pond_example, test } from './test.mjs'
 
 const fast_wait_time = 167
 const fast_interval_time = 83
@@ -232,7 +233,7 @@ createApp({
             }
             return style
         },
-        get_pond_state() {
+        get_pond() {
             let pond_state = []
             for (let i = 0; i < height; i++) {
                 let pond_line = []
@@ -243,8 +244,15 @@ createApp({
             }
             return pond_state
         },
+        set_pond(pond) {
+            for (let i = 0; i < height; i++) {
+                for (let j = 0; j < width; j++) {
+                    this.pond[i][j].code = pond[i][j]
+                }
+            }
+        },
         calculate_pond() {
-            let pond_state = this.get_pond_state()
+            let pond_state = this.get_pond()
 
             let start_time = new Date().getTime()
             this.solution = solve_pond(pond_state)
@@ -330,22 +338,17 @@ createApp({
     },
     mounted() {
         window.solve_pond_test = (round = 5) => {
-            console.log(`start. round: ${round}`)
-
-            let pond = this.get_pond_state()
-
-            let start_time = new Date().getTime()
-            let average_time = 0
-            for (let i = 0; i < round; i++) {
+            let pond = this.get_pond()
+            test(() => {
                 solve_pond(pond)
-                let end_time = new Date().getTime()
-                let cost_time = end_time - start_time
-                console.log(`round: ${i + 1}; time: ${cost_time}ms`)
-                average_time += cost_time
-                start_time = end_time
-            }
-            average_time /= round
-            return `finished. average time: ${average_time}ms`
+            }, round)
+        }
+        window.load_pond = (index = 0) => {
+            this.set_pond(pond_example[index])
+        }
+        window.load_and_test = (index = 0, round = 5) => {
+            window.load_pond(index)
+            window.solve_pond_test(round)
         }
         window.print_pond = () => {
             let pond = []
@@ -359,11 +362,7 @@ createApp({
         }
         window.copy_pond = (pond) => {
             pond = JSON.parse(pond)
-            for (let i = 0; i < height; i++) {
-                for (let j = 0; j < width; j++) {
-                    this.pond[i][j].code = pond[i][j]
-                }
-            }
+            this.set_pond(pond)
         }
     }
 }).mount('#app')
