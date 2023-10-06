@@ -1,6 +1,7 @@
 import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 import { CODE, code_data } from './code.mjs'
-import { height, width, red_line, deepcopy, solve_pond } from './calculator.mjs'
+import { height, width, red_line, deepcopy } from "./util/constant.mjs"
+import { solve_pond } from './calculator.mjs'
 
 const fast_wait_time = 167
 const fast_interval_time = 83
@@ -345,6 +346,16 @@ createApp({
             }
             average_time /= round
             return `finished. average time: ${average_time}ms`
+        }
+        window.print_pond = () => {
+            let pond = []
+            for (let i = 0; i < height; i++) {
+                pond[i] = []
+                for (let j = 0; j < width; j++) {
+                    pond[i][j] = this.pond[i][j].code
+                }
+            }
+            return JSON.stringify(pond)
         }
     }
 }).mount('#app')

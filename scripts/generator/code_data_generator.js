@@ -177,20 +177,21 @@ const code_redable_map = (() => {
 
 const code_data = []
 for (let code in CODE) {
-    code_data[CODE[code]] = {
-        code_map: code_map[CODE[code]],
-        bar_length: bar_length[CODE[code]],
-        bar_code: bar_code[CODE[code]],
-        facing: code_facing[CODE[code]],
-        direction: code_direction_map(CODE[code]),
-        redable: code_redable_map(CODE[code]),
-        bar_coord: bar_coord_map(CODE[code]),
-        style: code_style_map(CODE[code])
+    code = CODE[code]
+    code_data[code] = {
+        code_map: code_map[code],
+        bar_length: bar_length[code],
+        bar_code: bar_code[code],
+        facing: code_facing[code],
+        direction: code_direction_map(code),
+        redable: code_redable_map(code),
+        bar_coord: bar_coord_map(code),
+        style: code_style_map(code)
     }
 }
 
 
-const { stringify_and_write_json } = require("../../util/json_util_commonjs.js")
+const { stringify_and_write_json } = require("../util/json_util_commonjs.js")
 
 stringify_and_write_json("code", CODE)
 stringify_and_write_json("code_data", code_data, 2)
