@@ -86,9 +86,10 @@ const code_style_map = (() => {
         }
     }
     code_style_map[CODE.EMPTY]["visibility"] = "hidden"
+    
     return (code) => {
         return code_style_map[code]
-    };
+    }
 })()
 
 const bar_coord_map = (() => {
@@ -106,6 +107,7 @@ const bar_coord_map = (() => {
         [CODE.HL2]: [[0, -1], [0, 0], [0, 1]],
         [CODE.HL3]: [[0, 0], [0, -1], [0, -2]]
     }
+
     return (code) => {
         return bar_coord_map[code]
     }
@@ -136,6 +138,7 @@ const code_direction_map = (() => {
         [CODE.HL2]: directions.horizontal,
         [CODE.HL3]: directions.horizontal
     }
+
     return (code) => {
         return code_direction_map[code]
     }

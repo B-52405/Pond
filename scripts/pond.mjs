@@ -357,7 +357,7 @@ createApp({
             }
             return JSON.stringify(pond)
         }
-        window.copy_pond = (pond)=>{
+        window.copy_pond = (pond) => {
             pond = JSON.parse(pond)
             for (let i = 0; i < height; i++) {
                 for (let j = 0; j < width; j++) {

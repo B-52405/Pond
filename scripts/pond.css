@@ -2,7 +2,7 @@ body {
     margin: 0;
     visibility: hidden;
     background-color: #f0f0f2;
-    background-image: url("../static/background.jpg");
+    background: url(../static/background.jpg);
 }
 
 .app {

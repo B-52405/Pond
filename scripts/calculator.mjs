@@ -27,10 +27,11 @@ function pond_hash(pond, pond_hash_pre, setter) {
     }
     let pond_hash_code = ""
     for (let i = 0; i < height; i++) {
-        pond_hash_code += String.fromCharCode(pond_hash_pre[i])
+        pond_hash_code+=String.fromCharCode(pond_hash_pre[i])
     }
     return pond_hash_code
 }
+
 
 function* next_states(state) {
     let [pond, step, pond_hash_pre] = state
