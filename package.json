@@ -3,7 +3,7 @@
     "version": "1.2.0",
     "description": "基于Vue的浅塘计算器",
     "scripts": {
-        "generate": "node ./scripts/generator/code_data_generator.js && node ./scripts/generator/calculator_data_generator.js && node ./scripts/generator/hash_data_generator.js"
+        "generate": "/bin/sh ./generate.sh"
     },
     "author": "B",
     "license": "ISC"

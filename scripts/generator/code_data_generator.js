@@ -1,3 +1,5 @@
+const { stringify_and_write_json } = require("../util/json_util_commonjs.js")
+
 const CODE = (() => {
     let code = {}
     let code_names = ["EMPTY", "V1", "V2", "VL1", "VL2", "VL3", "H1", "H2", "HL1", "HL2", "HL3", "START"]
@@ -189,9 +191,6 @@ for (let code in CODE) {
         style: code_style_map(code)
     }
 }
-
-
-const { stringify_and_write_json } = require("../util/json_util_commonjs.js")
 
 stringify_and_write_json("code", CODE)
 stringify_and_write_json("code_data", code_data, 2)
