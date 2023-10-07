@@ -2,7 +2,8 @@ body {
     margin: 0;
     visibility: hidden;
     background-color: #f0f0f2;
-    background: url(../static/background.jpg);
+    background: url(../static/background.svg);
+    background-size: 960px 560px;
 }
 
 .app {

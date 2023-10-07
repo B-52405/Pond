@@ -3,6 +3,7 @@ import { fetch_json } from "./util/json_util_es6.mjs"
 const pond_example = await fetch_json("pond_example")
 
 function test(executor, round = 5) {
+    console.log(`start. round: ${round}`)
     let start_time = new Date().getTime()
     let average_time = 0
     for (let i = 0; i < round; i++) {

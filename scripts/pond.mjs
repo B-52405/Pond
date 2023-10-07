@@ -339,7 +339,7 @@ createApp({
     mounted() {
         window.solve_pond_test = (round = 5) => {
             let pond = this.get_pond()
-            test(() => {
+            return test(() => {
                 solve_pond(pond)
             }, round)
         }
@@ -348,7 +348,7 @@ createApp({
         }
         window.load_and_test = (index = 0, round = 5) => {
             window.load_pond(index)
-            window.solve_pond_test(round)
+            return window.solve_pond_test(round)
         }
         window.print_pond = () => {
             let pond = []
