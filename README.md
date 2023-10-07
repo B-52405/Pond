@@ -19,38 +19,28 @@
 
 **注意：** 所有API均需在浏览器控制台中运行。
 
-### load_pond(index)
-
-***
+## load_pond([index])
 
 从示例关卡中选择加载并显示。
  - `index` : 示例关卡id，默认值为0。
 
-### print_pond()
-
-***
+## print_pond()
 
 在控制台输出当前关卡编码字符串。
 
-### copy_pond(pond)
-
-***
+## copy_pond(pond)
 
 加载字符串中的关卡。
 
  - `pond` ： 关卡编码字符串。
 
-### solve_pond_test(round)
-
-***
+## solve_pond_test([round])
 
 计算关卡答案并计算平均用时。
 
  - `round` ：测试轮数，默认值为5。
 
-### load_and_test(index, round)
-
-***
+## load_and_test([index] [, round])
 
 加载示例关卡并测试用时。
 
