@@ -6,10 +6,16 @@
     <title>浅塘计算器</title>
     <link rel="icon" href="./static/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="./scripts/pond.css" />
+    <link rel="stylesheet" href="./css/pond.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
 </head>
 
 <body id="body">
+    <div class="container">
+        <div class="square red"></div>
+        <div class="square yellow"></div>
+        <div class="square blue"></div>
+    </div>
     <div class="app" id="app">
         <div class="table_container">
             <table @mouseleave="table_on_mouse_leave">

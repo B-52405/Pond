@@ -367,5 +367,9 @@ createApp({
     }
 }).mount('#app')
 
-document.getElementById("body").style.visibility = "visible"
+document.getElementById("app").style.visibility = "visible"
+for(let square of document.getElementsByClassName("square")){
+    square.style.visibility = "hidden"
+    square.style.animation = undefined
+}
 document.ondragstart = function () { return false }
