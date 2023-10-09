@@ -368,7 +368,7 @@ createApp({
 }).mount('#app')
 
 document.getElementById("app").style.visibility = "visible"
-for(let square of document.getElementsByClassName("square")){
+for (let square of document.getElementsByClassName("square")) {
     square.style.visibility = "hidden"
     square.style.animation = undefined
 }
